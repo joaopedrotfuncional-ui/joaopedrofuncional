@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#071a35">
+  <title>JP Sports | Treinão Novembro Azul</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="./"><span class="brand-mark">JP</span><span>JP <b>SPORTS</b><small>INSCRIÇÕES OFICIAIS</small></span></a>
+  </header>
+  <main class="wrap">
+    <section id="public-view">
+      <div class="hero">
+        <div class="eyebrow">EVENTOS • CORRIDA • EXPERIÊNCIA</div>
+        <h1>Treinão Novembro Azul<br><span>do JP.</span></h1>
+        <p>Participe de uma manhã de movimento, conscientização e saúde.</p>
+      </div>
+      <section class="event-card">
+        <div class="event-tag">INSCRIÇÕES ABERTAS</div>
+        <h2>Treinão Novembro Azul do JP</h2>
+        <div class="event-meta">
+          <span>📅 <b>29/11/2026 (domingo)</b></span>
+          <span>📍 <b>Mercado da Torre – Live</b></span>
+          <span>⏰ Concentração <b>05:00</b></span>
+          <span>🏁 Largada <b>05:30</b></span>
+          <span>🏃 Distâncias <b>3 km e 5 km</b></span>
+        </div>
+      </section>
+      <section class="form-card">
+        <div class="section-heading"><span class="step">01</span><div><h2>Garanta sua vaga</h2><p>Preencha seus dados. Ao finalizar, o WhatsApp será aberto com sua solicitação de inscrição.</p></div></div>
+        <form id="registration-form">
+          <div class="grid two">
+            <label>Nome completo<input name="full_name" autocomplete="name" required maxlength="120" placeholder="Seu nome e sobrenome"></label>
+            <label>Seu WhatsApp<input name="phone" autocomplete="tel" required maxlength="30" placeholder="(81) 99999-9999"></label>
+          </div>
+          <label>E-mail<input name="email" type="email" autocomplete="email" required maxlength="180" placeholder="seuemail@email.com"></label>
+          <div class="grid two">
+            <label>Distância<select name="distance" required><option value="">Selecione</option><option>3 km</option><option>5 km</option></select></label>
+            <label>Inscrição<select name="package" id="package" required><option value="">Selecione</option><option value="no_shirt">Sem camisa — R$ 59,90</option><option value="with_shirt">Com camisa azul — R$ 99,90</option></select></label>
+          </div>
+          <div id="shirt-size-wrap" class="hidden">
+            <label>Tamanho da camisa<select name="shirt_size" id="shirt_size"><option value="">Selecione o tamanho</option><option>PP</option><option>P</option><option>M</option><option>G</option><option>GG</option><option>XG</option></select></label>
+          </div>
+          <div class="price-line"><span>Valor da inscrição</span><strong id="total">Selecione seu pacote</strong></div>
+          <div class="payment-options">
+            <div class="label-title">Forma de pagamento</div>
+            <label class="payment-choice"><input type="radio" name="payment_method" value="Pix" checked><span><b>Pix</b><small>Chave: 52.244.653/0001-10</small></span></label>
+          </div>
+          <label class="consent"><input type="checkbox" name="consent" required><span>Autorizo o uso dos dados informados para gerenciar minha inscrição e comunicações sobre este evento.</span></label>
+          <button class="btn primary full" type="submit" id="submit-btn">Continuar pelo WhatsApp</button>
+          <p class="form-note">A solicitação será enviada pelo WhatsApp da JP Sports. Sua vaga só estará confirmada após o retorno da organização e a confirmação do pagamento. Não solicitamos dados de cartão.</p>
+          <div id="form-message" role="status" aria-live="polite"></div>
+        </form>
+      </section>
+    </section>
+  </main>
+  <footer><span>JP SPORTS</span><span>Movimento, saúde e superação.</span></footer>
+  <script src="./app.js"></script>
+</body>
+</html>

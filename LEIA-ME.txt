@@ -1,0 +1,24 @@
+JP SPORTS — VERSÃO SEM SUPABASE
+
+Esta versão não usa Supabase nem banco de dados. O formulário encaminha os dados
+preenchidos para o WhatsApp da organização (+55 81 99951-0223).
+
+COMO PUBLICAR
+1. Extraia este ZIP.
+2. Envie TODOS os arquivos desta pasta para a raiz do repositório GitHub.
+3. Em Settings > Pages, selecione Deploy from a branch, branch main e /(root).
+4. Aguarde a publicação.
+
+IMPORTANTE
+- Ao enviar o formulário, o navegador abre o WhatsApp com uma mensagem pronta.
+- O participante ainda precisa apertar ENVIAR no WhatsApp.
+- A inscrição só será confirmada pela organização após retorno e confirmação do pagamento.
+- Não há painel administrativo, banco de dados ou lista automática de inscritos.
+- Para manter uma lista centralizada e exportável, será necessário um serviço de armazenamento/backend.
+
+EVENTO CONFIGURADO
+Treinão Novembro Azul do JP — 29/11/2026
+Mercado da Torre – Live | Concentração 05:00 | Largada 05:30
+Distâncias: 3 km e 5 km
+Sem camisa: R$ 59,90 | Com camisa azul: R$ 99,90
+Pix: 52.244.653/0001-10
