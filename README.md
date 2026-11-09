@@ -1,34 +1,16 @@
-# JP Sports — Inscrições pelo WhatsApp
+# JP Sports — inscrições centralizadas
 
-Página estática para divulgar o Treinão Novembro Azul do JP e encaminhar solicitações de inscrição diretamente ao WhatsApp da organização.
+Site estático para GitHub Pages com armazenamento central no Google Sheets via Google Apps Script.
 
-## Publicar no GitHub Pages
+## Funcionalidades
+- Inscrição pública para o Treinão Novembro Azul do JP.
+- Registros centralizados em uma única planilha, independentemente do dispositivo.
+- Painel administrativo com uma única senha, criada uma vez no backend.
+- Consulta, atualização do status de pagamento e exportação CSV.
+- Pix ou cartão como forma de pagamento solicitada; o site não processa cartões.
+- Declaração de ciência dos riscos e aptidão para atividade física.
 
-1. Extraia o ZIP.
-2. Envie todos os arquivos desta pasta para a raiz do repositório `https-joaopedrofuncional`.
-3. No GitHub, abra **Settings → Pages**.
-4. Em **Build and deployment**, escolha **Deploy from a branch**, branch `main` e pasta `/(root)`.
-5. Aguarde a publicação.
+## Configuração
+Siga `LEIA-ME.txt`. É necessário implantar `Code.gs` como Web App e inserir a URL `/exec` em `config.js`.
 
-Endereço esperado: `https://joaopedrotfuncional-ui.github.io/https-joaopedrofuncional/`
-
-## Como funciona
-
-- Não utiliza Supabase, banco de dados, autenticação ou chaves de API.
-- O formulário valida os dados no navegador e abre uma conversa no WhatsApp `+55 81 99951-0223` com os dados preenchidos.
-- A pessoa precisa tocar em **Enviar** no WhatsApp para encaminhar a solicitação.
-- A organização confirma a vaga e o pagamento manualmente.
-- As inscrições não ficam armazenadas em um painel administrativo nem em uma planilha automaticamente.
-
-## Dados configurados
-
-- Evento: Treinão Novembro Azul do JP
-- Data: 29/11/2026
-- Local: Mercado da Torre – Live
-- Concentração: 05:00 | Largada: 05:30
-- Distâncias: 3 km e 5 km
-- Sem camisa: R$ 59,90
-- Com camisa azul: R$ 99,90
-- Pix: 52.244.653/0001-10
-
-Para alterar telefone, preços ou dados do evento, edite `app.js` e `index.html`.
+**Não há cadastro público de usuários.** O backend bloqueia novas configurações após a criação da senha única.

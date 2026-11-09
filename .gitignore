@@ -1,27 +1,7 @@
-# Dependências e builds
-node_modules/
-dist/
-build/
-.netlify/
-
-# Variáveis de ambiente e credenciais locais
-.env
-.env.*
-!.env.example
-*.pem
-*.key
-
-# Logs e arquivos temporários
-*.log
-npm-debug.log*
-yarn-debug.log*
-pnpm-debug.log*
+# Arquivos locais e segredos
 .DS_Store
 Thumbs.db
-*.swp
-*.swo
-*~
-
-# Configurações locais de editores
-.vscode/
-.idea/
+*.log
+.env
+.env.*
+config.local.js

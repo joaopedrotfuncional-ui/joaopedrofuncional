@@ -10,6 +10,7 @@
 <body>
   <header class="topbar">
     <a class="brand" href="./"><span class="brand-mark">JP</span><span>JP <b>SPORTS</b><small>INSCRIÇÕES OFICIAIS</small></span></a>
+    <button class="admin-link" id="admin-open" type="button">Área ADM</button>
   </header>
   <main class="wrap">
     <section id="public-view">
@@ -48,16 +49,54 @@
           <div class="payment-options">
             <div class="label-title">Forma de pagamento</div>
             <label class="payment-choice"><input type="radio" name="payment_method" value="Pix" checked><span><b>Pix</b><small>Chave: 52.244.653/0001-10</small></span></label>
+            <label class="payment-choice"><input type="radio" name="payment_method" value="Cartão de crédito"><span><b>Cartão de crédito</b><small>Pagamento será combinado com a organização pelo WhatsApp. Não informe dados do cartão no site.</small></span></label>
           </div>
           <label class="consent"><input type="checkbox" name="consent" required><span>Autorizo o uso dos dados informados para gerenciar minha inscrição e comunicações sobre este evento.</span></label>
-          <button class="btn primary full" type="submit" id="submit-btn">Continuar pelo WhatsApp</button>
-          <p class="form-note">A solicitação será enviada pelo WhatsApp da JP Sports. Sua vaga só estará confirmada após o retorno da organização e a confirmação do pagamento. Não solicitamos dados de cartão.</p>
+          <div class="health-declaration">
+            <strong>Declaração de saúde e ciência dos riscos</strong>
+            <label class="consent"><input type="checkbox" name="health_declaration" required><span>Declaro que estou ciente dos riscos inerentes à prática de atividade física e corrida, que me considero apto(a) a participar e que não tenho conhecimento de doença preexistente ou condição de saúde que impeça minha participação. Caso tenha alguma condição de saúde, comprometo-me a buscar orientação médica antes do evento. Estou ciente de que devo respeitar meus limites e interromper a atividade se sentir qualquer mal-estar.</span></label>
+          </div>
+          <button class="btn primary full" type="submit" id="submit-btn">Confirmar solicitação pelo WhatsApp</button>
+          <p class="form-note">A solicitação será enviada pelo WhatsApp da JP Sports. Sua vaga só estará confirmada após o retorno da organização e a confirmação do pagamento. O site não coleta dados de cartão e não processa pagamentos diretamente.</p>
           <div id="form-message" role="status" aria-live="polite"></div>
         </form>
       </section>
     </section>
+    <section id="admin-view" class="hidden">
+      <section class="form-card narrow" id="admin-auth-card">
+        <h2 id="auth-title">Acesso administrativo</h2>
+        <p class="muted" id="auth-description">Acesso exclusivo do administrador. Todas as inscrições ficam reunidas neste painel.</p>
+        <form id="admin-auth-form">
+          <label id="setup-code-label" class="hidden">Código inicial de configuração<input id="setup-code" type="password" autocomplete="off"></label>
+          <label id="new-password-label" class="hidden">Criar senha<input id="new-password" type="password" minlength="8" autocomplete="new-password" placeholder="Mínimo de 8 caracteres"></label>
+          <label id="confirm-password-label" class="hidden">Confirmar senha<input id="confirm-password" type="password" minlength="8" autocomplete="new-password"></label>
+          <label id="current-password-label">Senha administrativa<input id="admin-password" type="password" autocomplete="current-password" placeholder="Sua senha" required></label>
+          <button class="btn primary full" id="auth-submit" type="submit">Entrar</button>
+          <button class="btn outline full" id="back-public" type="button">Voltar às inscrições</button>
+          <p id="login-message" role="status"></p>
+        </form>
+      </section>
+      <section id="admin-dashboard" class="hidden">
+        <section class="form-card">
+          <div class="dashboard-head"><div><h2>Painel de inscrições</h2><p class="muted">Todas as inscrições recebidas pelo site, de qualquer dispositivo.</p></div><button class="btn outline" id="admin-logout" type="button">Sair</button></div>
+          <div class="stats">
+            <div class="stat"><span>Total de solicitações</span><b id="stat-total">0</b></div>
+            <div class="stat"><span>3 km</span><b id="stat-3k">0</b></div>
+            <div class="stat"><span>5 km</span><b id="stat-5k">0</b></div>
+            <div class="stat"><span>Com camisa</span><b id="stat-shirts">0</b></div>
+          </div>
+          <div class="dashboard-head"><div><h3>Inscritos</h3></div><div class="dashboard-actions"><button class="btn outline" id="refresh-list" type="button">Atualizar lista</button><button class="btn primary" id="export-csv" type="button">Exportar CSV</button></div></div>
+          <div class="table-wrap"><table><thead><tr><th>Data</th><th>Nome</th><th>WhatsApp</th><th>Distância</th><th>Pacote</th><th>Valor</th><th>Forma de pagamento</th><th>Status</th></tr></thead><tbody id="registrations-body"></tbody></table></div>
+          <p class="muted" id="empty-list">Ainda não há inscrições registradas.</p>
+          <p class="form-note">Os registros desta lista são centralizados na planilha JP Sports. O pedido também abre o WhatsApp para contato com a organização.</p>
+        </section>
+      </section>
+    </section>
   </main>
   <footer><span>JP SPORTS</span><span>Movimento, saúde e superação.</span></footer>
-  <script src="./app.js"></script>
+  <form id="api-form" method="post" target="jp-api-frame" class="hidden"><input type="hidden" name="payload"></form>
+  <iframe name="jp-api-frame" id="jp-api-frame" class="hidden" title="Conexão segura com inscrições"></iframe>
+  <script src="./config.js?v=1"></script>
+  <script src="./app.js?v=20261109-CENTRAL-2"></script>
 </body>
 </html>

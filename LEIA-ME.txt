@@ -1,24 +1,35 @@
-JP SPORTS — VERSÃO SEM SUPABASE
+JP SPORTS — INSCRIÇÕES CENTRALIZADAS NO GOOGLE SHEETS
+GitHub Pages + Google Apps Script. Sem Supabase.
 
-Esta versão não usa Supabase nem banco de dados. O formulário encaminha os dados
-preenchidos para o WhatsApp da organização (+55 81 99951-0223).
+CONFIGURAÇÃO INICIAL (FAZER UMA ÚNICA VEZ)
+1. Crie uma planilha Google em https://sheets.google.com e dê o nome "JP Sports - Inscrições".
+2. Na planilha, abra Extensões > Apps Script.
+3. Substitua o conteúdo do arquivo Code.gs pelo Code.gs deste pacote. Salve.
+4. No Apps Script, abra Configurações do projeto > Propriedades do script > Adicionar propriedade:
+   Nome: ADMIN_SETUP_CODE
+   Valor: crie um código forte, longo e aleatório. Guarde-o temporariamente.
+5. Clique Implantar > Nova implantação > Aplicativo da web.
+   Executar como: Eu.
+   Quem pode acessar: Qualquer pessoa.
+   Clique Implantar e autorize.
+6. Copie a URL do aplicativo que termina em /exec.
+7. Abra config.js e substitua COLE_AQUI_A_URL_DO_WEB_APP pela URL /exec. Salve.
+8. Envie TODOS os arquivos desta pasta para a raiz do repositório GitHub Pages e faça commit.
+9. Abra o site. Acesse Área ADM. Use a ação de configuração inicial? Na primeira abertura da Área ADM, a tela mostrará o campo Código inicial, Criar senha e Confirmar senha. Informe o ADMIN_SETUP_CODE e defina uma senha forte de pelo menos 10 caracteres.
 
-COMO PUBLICAR
-1. Extraia este ZIP.
-2. Envie TODOS os arquivos desta pasta para a raiz do repositório GitHub.
-3. Em Settings > Pages, selecione Deploy from a branch, branch main e /(root).
-4. Aguarde a publicação.
+CRIAR A ÚNICA SENHA ADMINISTRATIVA
+A senha de administrador é única e só pode ser criada uma vez. Para concluir a configuração inicial, use a função de setup inicial indicada no painel, com o código ADMIN_SETUP_CODE e a senha desejada. Após salvar, o código inicial é apagado das propriedades do script. Não há cadastro de novos usuários e não existe criação pública de outra senha.
+Depois que a primeira senha for criada, a tela muda automaticamente para login. O backend bloqueia novas criações de senha e de usuários.
+
+INSCRIÇÕES
+O formulário grava primeiro os dados na planilha central Inscritos e depois abre o WhatsApp JP Sports (+55 81 99951-0223). Os participantes precisam tocar em Enviar no WhatsApp. O registro na planilha ocorre antes disso, quando o formulário é aceito pelo servidor.
+
+PAINEL ADM
+Use a única senha administrativa. O painel lista inscrições de todos os dispositivos, atualiza status Pendente/Pago/Cancelado e exporta CSV. A senha fica no Apps Script, não no navegador. Não compartilhe a planilha nem o código inicial.
 
 IMPORTANTE
-- Ao enviar o formulário, o navegador abre o WhatsApp com uma mensagem pronta.
-- O participante ainda precisa apertar ENVIAR no WhatsApp.
-- A inscrição só será confirmada pela organização após retorno e confirmação do pagamento.
-- Não há painel administrativo, banco de dados ou lista automática de inscritos.
-- Para manter uma lista centralizada e exportável, será necessário um serviço de armazenamento/backend.
-
-EVENTO CONFIGURADO
-Treinão Novembro Azul do JP — 29/11/2026
-Mercado da Torre – Live | Concentração 05:00 | Largada 05:30
-Distâncias: 3 km e 5 km
-Sem camisa: R$ 59,90 | Com camisa azul: R$ 99,90
-Pix: 52.244.653/0001-10
+- A planilha é privada; não publique seu link.
+- O Web App precisa executar como você e permitir acesso "Qualquer pessoa" para receber formulários públicos.
+- Nunca publique tokens ou códigos secretos no GitHub.
+- O GitHub Pages é apenas a hospedagem do site; o Google Apps Script faz o armazenamento central.
+- Antes de divulgar o link, faça uma inscrição de teste e confirme que a linha apareceu na planilha e no painel.
